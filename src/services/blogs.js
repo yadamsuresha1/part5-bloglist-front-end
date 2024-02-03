@@ -5,10 +5,12 @@ let token = null;
 const saveToken = (newToken) => {
   token = `Bearer ${newToken}`;
 };
+
 const getAll = async () => {
   const response = await axios.get(baseUrl);
   return response.data;
 };
+
 const create = async (blog) => {
   const config = {
     headers: { Authorization: token },

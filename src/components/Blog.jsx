@@ -37,7 +37,8 @@ const Blog = ({ currentBlog, onBlogDeleted, user }) => {
   return (
     <div className="blog-container">
       <div>
-        <b>{blog.title.toUpperCase()}</b>
+        <b className="blog-container-title">{blog.title.toUpperCase()}</b> -{" "}
+        <b className="blog-container-author">{blog.author.toUpperCase()}</b>
         <button
           className="beautiful-button"
           onClick={() => setShowDetails(!showDetails)}
@@ -47,12 +48,20 @@ const Blog = ({ currentBlog, onBlogDeleted, user }) => {
       </div>
       {showDetails && (
         <div>
-          <p>{`Url: ${blog.url}`}</p>
-          {`Likes: ${blog.likes}`}
-          <button className="beautiful-button" onClick={handleOnLike}>
-            Like
-          </button>
-          <p>{`User: ${blog.user.name}`}</p>
+          <p className="blog-container-url">{`Url: ${blog.url}`}</p>
+          <p className="blog-container-likes">
+            {`Likes: `}
+            <b id="likesCount">{blog.likes}</b>
+
+            <button
+              id="like"
+              className="beautiful-button"
+              onClick={handleOnLike}
+            >
+              Like
+            </button>
+          </p>
+          <p className="blog-container-username">{`User: ${blog.user.name}`}</p>
           {user.username === blog.user.username && (
             <button className="beautiful-button" onClick={handleOnDelete}>
               Remove

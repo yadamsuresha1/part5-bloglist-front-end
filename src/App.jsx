@@ -19,6 +19,7 @@ const App = () => {
   useEffect(() => {
     const getBlogs = async () => {
       const blogs = await blogService.getAll();
+      console.log("suresh", "blogs", blogs);
       const sortedBlogs = blogs.sort((b1, b2) => b2.likes - b1.likes);
       setBlogs(sortedBlogs);
     };
@@ -116,11 +117,6 @@ const App = () => {
       setNotification(null);
     }, 3000);
   };
-
-  const handleFormSubmit = () => {};
-  const handleUsernameChange = () => {};
-
-  const handlePasswordChange = () => {};
 
   return (
     <div>
